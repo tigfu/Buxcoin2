@@ -1,0 +1,16 @@
+
+services:
+  - type: web
+    name: cryptobot-discord
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: BOT_OWNER_ID
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.0"
